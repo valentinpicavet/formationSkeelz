@@ -52,24 +52,24 @@
 							class="form-control" id="salle" name="salle.nom">
 							<option value="">[[#{module.form.choisirSalle}]]</option>
 							<option th:each="salle : ${salles}" th:value="${salle.nom}"
-								th:selected="${module.salle?.nom == salle.nom}">[[${salle.nom}]]</option>
-						</select> <span class="text-danger" th:errors="${module.salle.nom}"></span>
+								th:selected="${module.nomSalle == salle.nom}">[[${salle.nom}]] - [[${salle.capacite}]]</option>
+						</select> <span class="text-danger" th:errors="${module.nomSalle}"></span>
 					</div>
 					<div class="form-group">
 						<label for="matiere">[[#{module.form.matiere}]]</label> <select
 							class="form-control" id="matiere" name="matiere.id">
 							<option value="">[[#{module.form.choisirMatiere}]]</option>
 							<option th:each="matiere : ${matieres}" th:value="${matiere.id}"
-								th:selected="${module.matiere?.id == matiere.id}">[[${module.id.nom}]]</option>
-						</select> <span class="text-danger" th:errors="${module.matiere.id}"></span>
+								th:selected="${module.matiereId == matiere.id}">[[${module.id.nom}]]</option>
+						</select> <span class="text-danger" th:errors="${module.matiereId}"></span>
 					</div>
 					<div class="form-group">
 						<label for="formateur">[[#{module.form.formateur}]]</label> <select
 							class="form-control" id="formateur" name="formateur.id">
 							<option value="">[[#{module.form.choisirFormateur}]]</option>
 							<option th:each="formateur : ${formateurs}" th:value="${formateur.id}"
-								th:selected="${module.formateur?.id == formateur.id}">[[${formateur.nom}]]</option>
-						</select> <span class="text-danger" th:errors="${module.formateur.nom}"></span>
+								th:selected="${module.formateurId == formateur.id}">[[${formateur.nom}]]</option>
+						</select> <span class="text-danger" th:errors="${module.formateurId}"></span>
 					</div>
 				</div>
 				<div class="card-footer">
