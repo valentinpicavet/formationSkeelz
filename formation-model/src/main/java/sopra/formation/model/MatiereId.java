@@ -6,14 +6,18 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @SuppressWarnings("serial")
 @Embeddable
 public class MatiereId implements Serializable {
 	@Column(name = "name")
+	@NotEmpty(message="{matiere.nom.obligatoire}")
 	private String nom;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "level")
+	@NotNull(message = "{matiere.niveau.obligatoire}")
 	private NiveauMatiere niveau;
 
 	public MatiereId() {

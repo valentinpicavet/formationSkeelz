@@ -9,11 +9,13 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.Valid;
 
 @Entity
 @Table(name = "subject")
 public class Matiere {
 	@EmbeddedId
+	@Valid
 	private MatiereId id;
 	@Version
 	private int version;
