@@ -27,6 +27,12 @@ public class SalleId implements Serializable {
 		this.capacite = capacite;
 	}
 
+	public SalleId(String nom, Integer capacite) {
+		super();
+		this.nom = nom;
+		this.capacite = capacite;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

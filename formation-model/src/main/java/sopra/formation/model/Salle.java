@@ -11,6 +11,8 @@ import javax.persistence.IdClass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "classroom")
@@ -18,9 +20,11 @@ import javax.persistence.Version;
 public class Salle {
 	@Id
 	@Column(name = "name")
+	@NotEmpty(message="{salle.nom.notempty}")
 	private String nom;
 	@Id
 	@Column(name = "capacity")
+	@NotNull(message="{salle.capacite.notnull}")
 	private Integer capacite;
 	@Version
 	private int version;
@@ -47,7 +51,7 @@ public class Salle {
 		this.nom = nom;
 	}
 
-	public int getCapacite() {
+	public Integer getCapacite() {
 		return capacite;
 	}
 	
