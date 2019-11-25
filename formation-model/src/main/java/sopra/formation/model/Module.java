@@ -8,11 +8,13 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "module")
 public class Module {
 	@Id
+	@NotNull(message = "{module.code.notnull}")
 	private Integer code;
 	@Version
 	private int version;
