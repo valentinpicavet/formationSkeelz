@@ -10,6 +10,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "subject")
@@ -20,6 +22,8 @@ public class Matiere {
 	@Version
 	private int version;
 	@Column(name = "duration")
+	@Min(value = 1, message = "{matiere.duree.min}")
+	@NotNull(message = "{matiere.duree.notnull}")
 	private Integer duree;
 	@Column(name = "requirement")
 	private String preRequis;
