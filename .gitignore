@@ -16,3 +16,9 @@ formation-web-spring-th/.settings/
 formation-web-spring-th/.classpath
 
 formation-web-spring-th/.project
+
+formation-data-jpa-spring-advanced/target/
+
+formation-model/target/
+
+formation-web-spring-th/target/
