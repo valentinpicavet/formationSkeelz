@@ -41,18 +41,26 @@
 					</div>
 					<div class="form-group">
 						<label for="filiere">[[#{module.form.filiere}]]</label> <select
-							class="form-control" id="filiere" name="filiere.id">
+							class="form-control" id="filiereId" name="filiereId">
 							<option value="">[[#{module.form.choisirFiliere}]]</option>
 							<option th:each="filiere : ${filieres}" th:value="${filiere.id}"
 								th:selected="${module.filiereId == filiere.id}">[[${filiere.intitule}]]</option>
 						</select> <span class="text-danger" th:errors="${module.filiereId}"></span>
 					</div>
 					<div class="form-group">
-						<label for="salle">[[#{module.form.salle}]]</label> <select
+						<label for="salle">[[#{module.form.salle.nom}]]</label> <select
 							class="form-control" id="salle" name="salle.nom">
 							<option value="">[[#{module.form.choisirSalle}]]</option>
 							<option th:each="salle : ${salles}" th:value="${salle.nom}"
-								th:selected="${module.nomSalle == salle.nom}">[[${salle.nom}]] - [[${salle.capacite}]]</option>
+								th:selected="${module.nomSalle == salle.nom}">[[${salle.nom}]]</option>
+						</select> <span class="text-danger" th:errors="${module.nomSalle}"></span>
+					</div>
+					<div class="form-group">
+						<label for="salle">[[#{module.form.salle.capacite}]]</label> <select
+							class="form-control" id="nomSalle" name="nomSalle">
+							<option value="">[[#{module.form.choisirSalle}]]</option>
+							<option th:each="salle : ${salles}" th:value="${salle.capacite}"
+								th:selected="${module.capaciteSalle == salle.capacite}">[[${salle.capacite}]]</option>
 						</select> <span class="text-danger" th:errors="${module.nomSalle}"></span>
 					</div>
 					<div class="form-group">
