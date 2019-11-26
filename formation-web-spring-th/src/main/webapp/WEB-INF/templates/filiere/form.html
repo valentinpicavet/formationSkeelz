@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta charset="UTF-8">
+<title>[[#{filiere.form.title}]]</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+</head>
+<body>
+
+	<section layout:fragment="custom-content">
+		<form th:action="@{/filiere/save}" method="post">
+			<input type="hidden" name="id" th:value="${maFiliere.id}">
+			<input type="hidden" name="version"
+				th:value="${maFiliere.version}">
+			<div id="filiereForm" class="card mt-3">
+				<div class="card-header bg-info text-white">
+					<h3>[[#{filiere.form.titleBis}]]</h3>
+				</div>
+				<div class="card-body">
+					<div class="form-group">
+						<label for="intitule">[[#{filiere.form.intitule}]]</label> <input
+							type="text" class="form-control" id="intitule"
+							name="intitule"
+							th:value="${maFiliere.intitule}">
+						<span class="text-danger"
+							th:errors="${maFiliere.intitule}"></span>
+					</div>
+					<div class="form-group">
+						<label for="promotion">[[#{filiere.form.promotion}]]</label> <input
+							type="text" class="form-control" id="promotion"
+							name="promotion" th:value="${maFiliere.promotion}">
+						<span class="text-danger"
+							th:errors="${maFiliere.promotion}"></span>
+					</div>
+					<div class="form-group">
+						<label for="dtDebut">[[#{filiere.form.dtDebut}]]</label> <input type="Date"
+							class="form-control" id="dtDebut" name="dtDebut"
+							th:value="${maFiliere.dtDebut}">
+						<span class="text-danger"
+							th:errors="${maFiliere.dtDebut}"></span>
+					</div>
+					<div class="form-group">
+						<label for="dispositif">[[#{filiere.form.dispositif}]]</label> 
+						
+						<select  class="form-control" id="dispositif"
+							name="dispositif">
+							<option value="">[[#{filiere.form.dispositif}]]</option>
+							<option th:each="disp : ${dispositif}" th:value="${disp}" th:selected="${maFiliere.dispositif == disp}">[[${disp.label}]]</option>
+						</select>
+						<span class="text-danger"
+							th:errors="${maFiliere.dispositif}"></span>
+					</div>
+
+				</div>
+				<div class="card-footer">
+					<div class="btn-group btn-group-lg float-right">
+						<button type="submit" class="btn btn-success">
+							<i class="fa fa-check"></i>
+						</button>
+						<a th:href="@{/filiere/cancel}" class="btn btn-warning"> <i
+							class="fa fa-undo"></i>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</form>
+
+	</section>
+</body>
+</html>
