@@ -24,7 +24,7 @@ public class Stagiaire extends Personne {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "birthdate")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Past(message = "date invalide")
+	@Past(message = "{stagiaire.dtnaissance.past}")
 	private Date dtNaissance;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "studylevel")
