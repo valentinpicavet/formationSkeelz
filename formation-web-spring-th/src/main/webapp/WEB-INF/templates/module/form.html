@@ -48,10 +48,10 @@
 						</select> <span class="text-danger" th:errors="${module.filiereId}"></span>
 					</div>
 					<div class="form-group">
-						<label for="nomSalleCapacite">[[#{module.form.salle.nom}]]</label> <select
+						<label for="nomSalleCapacite">[[#{module.form.salle}]]</label> <select
 							class="form-control" id="nomSalleCapacite" name="nomSalleCapacite">
 							<option value="">[[#{module.form.choisirSalle}]]</option>
-							<option th:each="salle : ${salles}" th:value="${nomSalleCapacite}"
+							<option th:each="salle : ${salles}" th:value="${salle.nom+'-'+salle.capacite}"
 								th:selected="${module.nomSalleCapacite == salle.nom+'-'+salle.capacite}">[[${salle.nom}]]-[[${salle.capacite}]]</option>
 						</select> <span class="text-danger" th:errors="${module.nomSalleCapacite}"></span>
 					</div>
@@ -59,7 +59,7 @@
 						<label for="nomMatiereNiveau">[[#{module.form.matiere}]]</label> <select
 							class="form-control" id="nomMatiereNiveau" name="nomMatiereNiveau">
 							<option value="">[[#{module.form.choisirMatiere}]]</option>
-							<option th:each="matiere : ${matieres}" th:value="${nomMatiereNiveau}"
+							<option th:each="matiere : ${matieres}" th:value="${matiere.id?.nom+'-'+matiere.id?.niveau}"
 								th:selected="${module.nomMatiereNiveau == matiere.id.nom+'-'+matiere.id.niveau}">[[${matiere.id.nom}]]-[[${matiere.id.niveau}]]</option>
 						</select> <span class="text-danger" th:errors="${module.nomMatiereNiveau}"></span>
 					</div>

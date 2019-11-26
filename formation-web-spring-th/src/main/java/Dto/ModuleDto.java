@@ -1,12 +1,12 @@
 package Dto;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import sopra.formation.model.NiveauMatiere;
 
 public class ModuleDto {
 
-	@NotNull(message = "aaaaa")
+	@NotNull(message = "{module.code.notnull}")
 	private Integer code;
 
 	private int version;
@@ -19,6 +19,8 @@ public class ModuleDto {
 	
 	private Long formateurId;
 	
+	@NotNull(message = "{module.matiere.notnull}")
+	@NotEmpty(message = "{module.matiere.notnull}")
 	private String nomMatiereNiveau;
 	
 	private String nomSalleCapacite;
