@@ -1,9 +1,12 @@
 package Dto;
 
+import javax.validation.constraints.NotNull;
+
 import sopra.formation.model.NiveauMatiere;
 
 public class ModuleDto {
 
+	@NotNull(message = "aaaaa")
 	private Integer code;
 
 	private int version;
@@ -16,13 +19,10 @@ public class ModuleDto {
 	
 	private Long formateurId;
 	
-	private String nomMatiere;
+	private String nomMatiereNiveau;
 	
-	private NiveauMatiere niveauMatiere;
+	private String nomSalleCapacite;
 	
-	private String nomSalle;
-	
-	private Integer capaciteSalle;
 
 	public Integer getCode() {
 		return code;
@@ -72,39 +72,25 @@ public class ModuleDto {
 		this.formateurId = formateurId;
 	}
 
-	public String getNomMatiere() {
-		return nomMatiere;
+	
+
+	public String getNomMatiereNiveau() {
+		return nomMatiereNiveau;
 	}
 
-	public void setNomMatiere(String nomMatiere) {
-		this.nomMatiere = nomMatiere;
+	public void setNomMatiereNiveau(String nomMatiereNiveau) {
+		this.nomMatiereNiveau = nomMatiereNiveau;
+	}
+
+	public String getNomSalleCapacite() {
+		return nomSalleCapacite;
+	}
+
+	public void setNomSalleCapacite(String nomSalleCapacite) {
+		this.nomSalleCapacite = nomSalleCapacite;
 	}
 
 
-
-	public NiveauMatiere getNiveauMatiere() {
-		return niveauMatiere;
-	}
-
-	public void setNiveauMatiere(NiveauMatiere niveauMatiere) {
-		this.niveauMatiere = niveauMatiere;
-	}
-
-	public String getNomSalle() {
-		return nomSalle;
-	}
-
-	public void setNomSalle(String nomSalle) {
-		this.nomSalle = nomSalle;
-	}
-
-	public Integer getCapaciteSalle() {
-		return capaciteSalle;
-	}
-
-	public void setCapaciteSalle(Integer capaciteSalle) {
-		this.capaciteSalle = capaciteSalle;
-	}
 	
 	
 	

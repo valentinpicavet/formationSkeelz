@@ -19,6 +19,7 @@ import sopra.formation.model.Filiere;
 import sopra.formation.model.Formateur;
 import sopra.formation.model.MatiereId;
 import sopra.formation.model.Module;
+import sopra.formation.model.NiveauMatiere;
 import sopra.formation.model.SalleId;
 import sopra.formation.repository.IFiliereRepository;
 import sopra.formation.repository.IMatiereRepository;
@@ -78,10 +79,13 @@ public class ModuleController {
 		moduleDto.setOrdre(module.getOrdre());
 		moduleDto.setFiliereId(module.getFiliere().getId());
 		moduleDto.setFormateurId(module.getFormateur().getId());
-		moduleDto.setNomMatiere(module.getMatiere().getId().getNom());
-		moduleDto.setNiveauMatiere(module.getMatiere().getId().getNiveau());
-		moduleDto.setNomSalle(module.getSalle().getNom());
-		moduleDto.setCapaciteSalle(module.getSalle().getCapacite());
+		String nomMatiere = module.getMatiere().getId().getNom();
+		String niveauMatiere=module.getMatiere().getId().getNiveau().toString();
+		moduleDto.setNomMatiereNiveau(nomMatiere+"-"+niveauMatiere);
+		String nomSalle = module.getSalle().getNom();
+		String capaciteSalle = module.getSalle().getCapacite().toString();
+		moduleDto.setNomSalleCapacite(nomSalle+"-"+capaciteSalle);
+
 
 		
 		model.addAttribute("module", moduleDto);
@@ -114,12 +118,12 @@ public class ModuleController {
 		module.setFiliere(filiere);
 		module.setFormateur((Formateur) personneRepo.findById(moduleDto.getFormateurId()).get());
 		SalleId salleId = new SalleId();
-		salleId.setCapacite(moduleDto.getCapaciteSalle());
-		salleId.setNom(moduleDto.getNomSalle());
+		salleId.setCapacite(Integer.parseInt(moduleDto.getNomSalleCapacite().split("-")[1]));
+		salleId.setNom(moduleDto.getNomSalleCapacite().split("-")[0]);
 		module.setSalle(salleRepo.findById(salleId).get());
 		MatiereId matiereId = new MatiereId();
-		matiereId.setNom(moduleDto.getNomMatiere());
-		matiereId.setNiveau(moduleDto.getNiveauMatiere());
+		matiereId.setNom(moduleDto.getNomMatiereNiveau().split("-")[0]);
+		matiereId.setNiveau(NiveauMatiere.valueOf(moduleDto.getNomMatiereNiveau().split("-")[1]));
 		module.setMatiere(matiereRepo.findById(matiereId).get());
 		
 		
